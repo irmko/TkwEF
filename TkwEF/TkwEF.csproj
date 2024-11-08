@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E3C2259-1A25-4BA2-8999-FFD2A6ED047D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TkwEF</RootNamespace>
+    <AssemblyName>TkwEF</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;_DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CherLeop.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Eventing.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Eventing.1.0.0\lib\net45\Eventing.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIExceptionHandler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\UIExceptionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="UIExceptionHandlerWinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\UIExceptionHandlerWinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CalendarButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CalendarButton.Designer.cs">
+      <DependentUpon>CalendarButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClubsCbx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ClubsCbx.Designer.cs">
+      <DependentUpon>ClubsCbx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataGridViewXF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataGridViewXF.Designer.cs">
+      <DependentUpon>DataGridViewXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PoyasCbx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PoyasCbx.Designer.cs">
+      <DependentUpon>PoyasCbx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TextBoxGrdZagolovok.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxGrdZagolovok.Designer.cs">
+      <DependentUpon>TextBoxGrdZagolovok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\FormAsyncEx.cs" />
+    <Compile Include="Helper\TkwMail.cs" />
+    <Compile Include="UI\BUI_picker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BUI_picker.designer.cs">
+      <DependentUpon>BUI_picker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Comp\f_Comp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Comp\f_Comp.Designer.cs">
+      <DependentUpon>f_Comp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Comp\f_Comp_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Comp\f_Comp_edit.Designer.cs">
+      <DependentUpon>f_Comp_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\f_BDUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\f_BDUI.Designer.cs">
+      <DependentUpon>f_BDUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\f_BUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\f_BUI.Designer.cs">
+      <DependentUpon>f_BUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\f_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\f_Main.Designer.cs">
+      <DependentUpon>f_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\f_BUI_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\f_BUI_Base.Designer.cs">
+      <DependentUpon>f_BUI_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf.Designer.cs">
+      <DependentUpon>f_Graf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf_create_one.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf_create_one.Designer.cs">
+      <DependentUpon>f_Graf_create_one.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf_pobeditel_select_dlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Graf\f_Graf_pobeditel_select_dlg.Designer.cs">
+      <DependentUpon>f_Graf_pobeditel_select_dlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravFizLitsa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravFizLitsa.Designer.cs">
+      <DependentUpon>f_SpravFizLitsa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravFizLitsa_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravFizLitsa_edit.Designer.cs">
+      <DependentUpon>f_SpravFizLitsa_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravClub.Designer.cs">
+      <DependentUpon>f_SpravClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas.Designer.cs">
+      <DependentUpon>f_SpravPoyas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravClub_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravClub_edit.Designer.cs">
+      <DependentUpon>f_SpravClub_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas_change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas_change.Designer.cs">
+      <DependentUpon>f_SpravPoyas_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravPoyas_edit.Designer.cs">
+      <DependentUpon>f_SpravPoyas_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravUserClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravUserClub.Designer.cs">
+      <DependentUpon>f_SpravUserClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravVesKat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravVesKat.Designer.cs">
+      <DependentUpon>f_SpravVesKat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravVesKat_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sprav\f_SpravVesKat_edit.Designer.cs">
+      <DependentUpon>f_SpravVesKat_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UiException.cs" />
+    <EmbeddedResource Include="Controls\CalendarButton.resx">
+      <DependentUpon>CalendarButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ClubsCbx.resx">
+      <DependentUpon>ClubsCbx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataGridViewXF.resx">
+      <DependentUpon>DataGridViewXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TextBoxGrdZagolovok.resx">
+      <DependentUpon>TextBoxGrdZagolovok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PoyasCbx.resx">
+      <DependentUpon>PoyasCbx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\BUI_picker.resx">
+      <DependentUpon>BUI_picker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Comp\f_Comp.resx">
+      <DependentUpon>f_Comp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Comp\f_Comp_edit.resx">
+      <DependentUpon>f_Comp_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\f_BDUI.resx">
+      <DependentUpon>f_BDUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\f_BUI.resx">
+      <DependentUpon>f_BUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\f_Main.resx">
+      <DependentUpon>f_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\f_BUI_Base.resx">
+      <DependentUpon>f_BUI_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Graf\f_Graf.resx">
+      <DependentUpon>f_Graf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Graf\f_Graf_create_one.resx">
+      <DependentUpon>f_Graf_create_one.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Graf\f_Graf_pobeditel_select_dlg.resx">
+      <DependentUpon>f_Graf_pobeditel_select_dlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravFizLitsa.resx">
+      <DependentUpon>f_SpravFizLitsa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravFizLitsa_edit.resx">
+      <DependentUpon>f_SpravFizLitsa_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravClub.resx">
+      <DependentUpon>f_SpravClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravPoyas.resx">
+      <DependentUpon>f_SpravPoyas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravClub_edit.resx">
+      <DependentUpon>f_SpravClub_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravPoyas_change.resx">
+      <DependentUpon>f_SpravPoyas_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravPoyas_edit.resx">
+      <DependentUpon>f_SpravPoyas_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravUserClub.resx">
+      <DependentUpon>f_SpravUserClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravVesKat.resx">
+      <DependentUpon>f_SpravVesKat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sprav\f_SpravVesKat_edit.resx">
+      <DependentUpon>f_SpravVesKat_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CherLeop1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CherLeop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CherLeop.ico" />
+    <Content Include="Images\закрыть-окно-48.png" />
+    <None Include="Resources\icons8_cancel_16px_1.png" />
+    <None Include="Resources\close_window_16.png" />
+    <None Include="Resources\icons8_swimmer_back_view_48px.png" />
+    <None Include="Resources\icons8_rope_26px.png" />
+    <None Include="Resources\icons8_taekwondo_25px.png" />
+    <None Include="Resources\icons8_guru_32px.png" />
+    <None Include="Resources\icons8_prenatal_yoga_filled_25px.png" />
+    <None Include="Resources\icons8_meditation_guru_48px.png" />
+    <None Include="Resources\meditation_guru_26px.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\disks.png" />
+    <None Include="Resources\disk.png" />
+    <None Include="Resources\tick-circle-frame.png" />
+    <None Include="Resources\tick.png" />
+    <None Include="Resources\hammer--plus.png" />
+    <None Include="Resources\hammer--pencil.png" />
+    <None Include="Resources\hammer--minus.png" />
+    <None Include="Resources\hammer.png" />
+    <None Include="Resources\user-silhouette.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\user--plus.png" />
+    <None Include="Resources\user--pencil.png" />
+    <None Include="Resources\user--minus.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\information-frame.png" />
+    <None Include="Resources\minus-circle-frame.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\plus-circle-frame.png" />
+    <None Include="Images\редактировать-64.png" />
+    <None Include="Images\плюс-2-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{34971106-9788-4447-8c84-4300db295894}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TkwCL\TkwCL.csproj">
+      <Project>{5052bdba-b5df-4beb-805c-01455dc92710}</Project>
+      <Name>TkwCL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
